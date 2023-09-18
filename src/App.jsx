@@ -1,3 +1,4 @@
+import FloatingActionButton from "./Components/FloatingActionButton"
 import Header from "./Components/Header"
 
 function App() {
@@ -5,7 +6,8 @@ function App() {
   return (
     <>
      <div className='bg-primary w-full h-screen text text-text-primary'>
-<Header/>
+  <Header/> 
+  <FloatingActionButton/>
      </div>
     </>
   )
