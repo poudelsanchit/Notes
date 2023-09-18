@@ -1,11 +1,13 @@
 import React from 'react'
 import {IoChevronBack,IoCheckmarkDoneCircleOutline} from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const AddNotes = () => {
+    const navigate = useNavigate();
+
   return (
     <div className='p-3 flex flex-col'>
         <div className='flex justify-between text-2xl'>
-            <IoChevronBack/>
+            <IoChevronBack onClick={()=>navigate(-1)}/>
           <IoCheckmarkDoneCircleOutline/>
         </div>
         <div className='mt-5 font-Roboto font-bold text-2xl'>
