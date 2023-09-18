@@ -1,17 +1,30 @@
 import React, { useState } from 'react'
 import {IoChevronBack,IoCheckmarkDoneCircleOutline} from 'react-icons/io5'
 import { Link, useNavigate } from 'react-router-dom'
-const AddNotes = () => {
+import { nanoid } from 'nanoid'
+const AddNotes = ({handleAddNote}) => {
     const navigate = useNavigate();
     const[title,setTitle]= useState('');
     const[note,setNote]= useState('');
     const[datetime, setDateTime]= useState(new Date());
     const notelength= note.length;
+    const saveData=()=>{
+        handleAddNote(
+        {
+        id: nanoid(),
+        title:title,
+        text:note,
+        date: datetime.getDate(),
+        color:'#171c26'
+        }
+      )
+      navigate(-1);
+    }
   return (
     <div className='p-3 flex flex-col'>
         <div className='flex justify-between text-2xl'>
             <IoChevronBack onClick={()=>navigate(-1)}/>
-          <IoCheckmarkDoneCircleOutline className='text-3xl'/>
+          <IoCheckmarkDoneCircleOutline className='text-3xl' onClick={saveData}/>
         </div>
         <div className='mt-5 font-Roboto font-bold text-2xl'>
             <div>

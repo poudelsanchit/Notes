@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Header from '../Components/Header'
 import { nanoid  } from 'nanoid';
 import NoteItem from '../Components/NoteItem';
-import notes from '../Data/Notes.jsx'
-const Notes = () => {
+const Notes = ({notes}) => {
   
   return (
     <div className='text-text-primary'>
