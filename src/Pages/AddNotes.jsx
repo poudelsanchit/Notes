@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
 import {IoChevronBack,IoCheckmarkDoneCircleOutline} from 'react-icons/io5'
+import {BsTrash,BsShare} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid'
 const AddNotes = ({handleAddNote}) => {
+  const colors=[
+    {color:'#3369ff'},
+    {color:'#ffda47'},
+    {color:'#ffffff'},
+    {color:'#ae3b76'},
+    {color:'#0aebaf'},
+    {color:'#ff7746'},
+    {color:'#0e121b'},
+  ]
+  const[color,setColor]= useState('#3369ff');
     const navigate = useNavigate();
     const[title,setTitle]= useState('');
     const[note,setNote]= useState('');
@@ -15,12 +26,13 @@ const AddNotes = ({handleAddNote}) => {
         title:title,
         text:note,
         date: datetime.getDate(),
-        color:'#171c26'
+        color:color
         }
       )
       navigate(-1);
     }
   return (
+    <>
     <div className='p-3 flex flex-col'>
         <div className='flex justify-between text-2xl'>
             <IoChevronBack onClick={()=>navigate(-1)}/>
@@ -37,7 +49,31 @@ const AddNotes = ({handleAddNote}) => {
 
                         </div>
         </div>
+        
     </div>
+    <div className='bg-[#171c26] bottom-0 absolute h-48 p-4 rounded-t-[2rem] w-full'>
+    <div className='flex justify-evenly '>
+      { colors.map((notes)=>(
+        <div className='w-10 h-10 rounded-full bg-[#212734] flex items-center justify-center'>     
+             <div className='w-8 h-8 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}} onClick={()=>{setColor(notes.color)}}/>
+        </div>
+               ))
+      }
+    </div>
+    <div className='px-5 py-3  tracking-tighter	cursor-pointer flex items-center gap-2 text-lg font-Roboto'>
+    <BsTrash/>
+    <div>
+      Delete Note
+    </div>
+      </div>
+      <div className='px-5 py-3 tracking-tighter	 cursor-pointer flex items-center gap-2 text-lg font-Roboto'>
+    <BsShare/>
+    <div>
+      Share
+    </div>
+      </div>
+        </div>
+        </>
   )
 }
 

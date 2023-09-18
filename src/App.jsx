@@ -3,40 +3,44 @@ import FloatingActionButton from "./Components/FloatingActionButton"
 import Header from "./Components/Header"
 import Notes from "./Pages/Notes"
 import AddNotes from "./Pages/AddNotes"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
-function App() {
-  const [notes,setNotes]=useState([
+const getLocalItems=()=>{
+  const list = JSON.parse(
+    localStorage.getItem('react-notes-app-data'));
+    if(list)
     {
-    id: nanoid(),
-    title:'First Note',
-    text: 'This is my first note!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ipsam eum laudantium ratione quod eos, fugit earum itaque quisquam ex id dolores maiores dignissimos sapiente impedit beatae, necessitatibus corrupti! Aut!',
-    date: '15/04/2021',
-    color:'#4E33FF'
-},
+      return list;
+    }
+    else{
+      return [];
+    }
+}
+function App() {
+  const addNotes=(notelist)=>{
+    const newNotes=[...notes,notelist];
+    setNotes(newNotes);
+  
+  }
 
-{
-    id: nanoid(),
-    title:'Second Note',
-    text: 'This is my second note!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ipsam eum laudantium ratione quod eos, fugit earum itaque quisquam ex id dolores maiores dignissimos sapiente impedit beatae, necessitatibus corrupti! Aut!',
-    date: '21/04/2021',
-    color:'#FFD633'
+  const [notes,setNotes]=useState(getLocalItems());
 
-},
-{
-    id: nanoid(),
-    title:'Third Note',
-    text: 'This is my third note!',
-    date: '28/04/2021',
-    color:'#171c26'
-
-}]);
-const addNotes=(notelist)=>{
-  const newNotes=[...notes,notelist];
-  setNotes(newNotes);
+useEffect(() => {
+  const savedNotes = JSON.parse(
+    localStorage.getItem('react-notes-app-data')
+  );
+  setNotes(savedNotes);
   console.log(notes)
 
-}
+}, []);
+
+useEffect(() => {
+  localStorage.setItem(
+    'react-notes-app-data',
+    JSON.stringify(notes)
+  );
+}, [notes]);
+
   return (
     <>
      <div className='bg-primary w-full h-screen text text-text-primary  flex justify-center'>
@@ -50,7 +54,6 @@ const addNotes=(notelist)=>{
   
      </div>
 
-     <FloatingActionButton />
 
     </>
   )

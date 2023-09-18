@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from '../Components/Header'
 import { nanoid  } from 'nanoid';
 import NoteItem from '../Components/NoteItem';
+import FloatingActionButton from '../Components/FloatingActionButton';
 const Notes = ({notes}) => {
   
   return (
@@ -15,6 +16,7 @@ const Notes = ({notes}) => {
               }
               </div>
             
+              <FloatingActionButton/>
 
     </div>
   )

@@ -10,7 +10,7 @@ const NoteItem = ({note_title,note_text,note_date,color}) => {
         {note_title}
 
         </div>
-        <div className='text-[#bccac3] text-sm '> 
+        <div className='text-[#78918d] text-sm '> 
             {note_text}
         </div>
         </div>
