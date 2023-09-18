@@ -15,7 +15,9 @@
   }
 
 }
-
+div::-webkit-scrollbar{
+  display: none;
+}
 ::-webkit-scrollbar {
   width: 6px;
   background-color: #191627;
