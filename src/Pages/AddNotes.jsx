@@ -25,7 +25,7 @@ const AddNotes = ({handleAddNote}) => {
         id: nanoid(),
         title:title,
         text:note,
-        date: datetime.getDate(),
+        date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
         color:color
         }
       )
