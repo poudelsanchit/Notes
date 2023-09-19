@@ -8,12 +8,7 @@ import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
 
 const getLocalItems=()=>{
-  useEffect(()=>{
-    setTimeout(function(){
-      window.location.reload();
-    }, 10);
-  },[])
-  
+
   const list = JSON.parse(
     localStorage.getItem('react-notes-app-data'));
     if(list)
@@ -25,6 +20,12 @@ const getLocalItems=()=>{
     }
 }
 function App() {
+  useEffect(()=>{
+    setTimeout(function(){
+      window.location.reload();
+    }, 10);
+  },[])
+  
   const addNotes=(notelist)=>{
     const newNotes=[...notes,notelist];
     setNotes(newNotes);
