@@ -11,7 +11,7 @@ const getLocalItems=()=>{
   useEffect(()=>{
     setTimeout(function(){
       window.location.reload();
-    }, 1);
+    }, 10);
   },[])
   
   const list = JSON.parse(
