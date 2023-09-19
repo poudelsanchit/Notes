@@ -33,7 +33,6 @@ function App() {
         setNotes(editNotes);
      }
     }
- 
   }
   const [notes,setNotes]=useState(getLocalItems());
   var noteslen=Object.entries(notes).length;
@@ -59,8 +58,8 @@ setNotes(newnotes);
 }
   return (
     <>
-     <div className='bg-primary w-full h-screen text text-text-primary  flex justify-center'>
-      <div className="w-full md:w-3/5">
+     <div className='bg-[#f2f5fa] dark:bg-primary w-full  text text-text-primary  flex justify-center'>
+      <div className="w-full">
       <Routes>
       <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
       <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes} data={notes}/>}/>

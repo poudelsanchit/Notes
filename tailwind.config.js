@@ -20,6 +20,7 @@ export default {
       'text-primary':'#ffffff',
       'switch-bg':'#171c26',
       'green':'#008000',
+      
 
     },
     extend: {},

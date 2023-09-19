@@ -6,8 +6,9 @@ import FloatingActionButton from '../Components/FloatingActionButton';
 const Notes = ({notes,handleDeleteNote}) => {
   
   return (
-    <div className='text-text-primary'>
-              <Header/> 
+    <div className='flex justify-center'>
+  <div className='text-text-primary bg-[#f2f5fa] dark:bg-primary '>
+              <Header/>
               <div className='grid grid-cols-2 mr-3'>
               {
                notes.map((notes)=>(
@@ -18,6 +19,8 @@ const Notes = ({notes,handleDeleteNote}) => {
             
               <FloatingActionButton/>
 
+    </div>
+  
     </div>
   )
 }
