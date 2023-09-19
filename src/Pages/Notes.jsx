@@ -7,7 +7,8 @@ const Notes = ({notes,handleDeleteNote}) => {
   
   return (
     <div className='flex justify-center'>
-  <div className='text-text-primary bg-[#f2f5fa] dark:bg-primary '>
+      <div className='md:w-3/5 w-full  text-text-primary bg-[#ffffff] dark:bg-primary'>
+  
               <Header/>
               <div className='grid grid-cols-2 mr-3'>
               {
@@ -22,6 +23,8 @@ const Notes = ({notes,handleDeleteNote}) => {
     </div>
   
     </div>
+     
+    
   )
 }
 

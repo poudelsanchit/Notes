@@ -57,22 +57,20 @@ const newnotes=  notes.filter((note)=>note.id!=id)
 setNotes(newnotes);
 }
   return (
-    <>
-     <div className='bg-[#f2f5fa] dark:bg-primary  text text-text-primary  flex justify-center'>
-      <div className="w-full">
-      <Routes>
+    <div className="w-full bg-text-primary h-screen">
+       <Routes>
       <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
       <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes} data={notes}/>}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
 
       </Routes>
+    </div>
+     
   
-      </div>
   
-     </div>
 
 
-    </>
+    
   )
 }
 
