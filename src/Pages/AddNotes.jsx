@@ -82,7 +82,7 @@ const AddNotes = ({handleAddNote,data}) => {
           </div>
           
       </div>
-      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 absolute h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
+      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 fixed h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-evenly '>
         { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
