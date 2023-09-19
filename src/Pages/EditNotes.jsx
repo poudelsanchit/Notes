@@ -101,7 +101,7 @@ const EditNotes = ({handleEditNote,data}) => {
               <div className='text-xs text-[#000000] dark:text-[#a2a7b5] font-light border-b-[1px] pb-2'>{   `${days[datetime.getDay()]},${datetime.toLocaleString("en-US", {hour: "numeric", minute: "numeric", hour12: true,})} | ${notelength} characters`}</div>
              
               <div className='flex text-3xl dark:bg-primary bg-[#ffffff] rounded-md items-center mt-4'>
-                    <textarea onChange={(event) => { setNote(event.target.value) }} value={note} type="text" name="" id="" className='bg-[#ffffff] dark:bg-primary text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] w-full focus:outline-none rounded-md text-sm font-medium l:text-lg h-96 ' placeholder='your note.....'  />
+                    <textarea autoFocus onChange={(event) => { setNote(event.target.value) }} value={note} type="text" name="" id="" className='bg-[#ffffff] dark:bg-primary text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] w-full focus:outline-none rounded-md text-sm font-medium l:text-lg h-96 ' placeholder='your note.....'  />
               </div>
           </div>
           

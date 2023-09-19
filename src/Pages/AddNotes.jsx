@@ -8,10 +8,7 @@ import { nanoid } from 'nanoid'
 
 const AddNotes = ({handleAddNote,data}) => {
   
-  
-    
-  
-   
+
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
     const [colors,setColors]=useState([
@@ -73,12 +70,12 @@ const AddNotes = ({handleAddNote,data}) => {
           <div className='mt-5 font-Roboto font-bold text-2xl'>
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
-                  <input type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
+                  <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
               </div>
               <div className='text-xs text-[#000000] dark:text-[#a2a7b5] font-light border-b-[1px] pb-2'>{   `${days[datetime.getDay()]},${datetime.toLocaleString("en-US", {hour: "numeric", minute: "numeric", hour12: true,})} | ${notelength} characters`}</div>
              
               <div className='flex text-3xl dark:bg-primary bg-[#ffffff] rounded-md items-center mt-4'>
-                    <textarea onChange={(event) => { setNote(event.target.value) }} value={note} type="text" name="" id="" className='bg-[#ffffff] dark:bg-primary text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] w-full focus:outline-none rounded-md text-sm font-medium l:text-lg h-96 ' placeholder='your note.....'  />
+                    <textarea onChange={(event) => { setNote(event.target.value) }} value={note} type="text" name="" id="myTextInput" className='bg-[#ffffff] dark:bg-primary text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] w-full focus:outline-none rounded-md text-sm font-medium l:text-lg h-96 ' placeholder='your note.....'  />
               </div>
           </div>
           
