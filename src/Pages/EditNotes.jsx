@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react'
 import {IoChevronBack,IoCheckmarkDoneCircleOutline} from 'react-icons/io5'
 import {BsTrash,BsShare} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
-import { nanoid } from 'nanoid'
+import { data } from 'autoprefixer'
+import { useParams } from 'react-router-dom'
  
  
 
-const AddNotes = ({handleAddNote,data}) => {
+const EditNotes = ({handleEditNote,data}) => {
+    const { noteid } = useParams(); 
   
+    var noteslen=Object.entries(data).length;
+    var newId = noteid.substr(1, noteid.length - 1);
   
     
   
@@ -36,9 +40,17 @@ const AddNotes = ({handleAddNote,data}) => {
           console.log(errMsg)
         }
         else{
-          handleAddNote(
+            // for(var index=0;index<noteslen;index++)
+            // {
+            //         if(newId==data[index].id)
+            //         {
+            //             console.log('hello')
+            //         }
+            // }
+            handleEditNote( 
             {
-            id: nanoid(),
+                
+            id: newId,
             title:title,
             text:note,
             date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
@@ -60,7 +72,18 @@ const AddNotes = ({handleAddNote,data}) => {
           }
         }
     }
-  
+    for (let index = 0; index < noteslen; index++) {
+      if(newId==data[index].id)
+      {
+        var noteTitle= data[index].title;
+        var notetext= data[index].text;
+        
+     }
+    }
+  useEffect(()=>{
+    setNote(notetext);
+    setTitle(noteTitle);
+  },[])  
     return (
       <>
       <div className='p-3 flex flex-col'>
@@ -111,4 +134,4 @@ const AddNotes = ({handleAddNote,data}) => {
     )
   }
   
-  export default AddNotes
+  export default EditNotes

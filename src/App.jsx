@@ -5,7 +5,9 @@ import Notes from "./Pages/Notes"
 import AddNotes from "./Pages/AddNotes"
 import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
+import EditNotes from "./Pages/EditNotes"
 const getLocalItems=()=>{
+  
   const list = JSON.parse(
     localStorage.getItem('react-notes-app-data'));
     if(list)
@@ -17,22 +19,32 @@ const getLocalItems=()=>{
     }
 }
 function App() {
-  
   const addNotes=(notelist)=>{
     const newNotes=[...notes,notelist];
     setNotes(newNotes);
-  
   }
+  const editNotes=(editedNotes)=>{
+    for (let index = 0; index < noteslen; index++) {
+      if(editedNotes.id==notes[index].id)
+      {
+        notes[index]=editedNotes;
+        const editNotes= [...notes];
+        console.log(editNotes)
+        setNotes(editNotes);
+     }
+    }
 
+  }
   const [notes,setNotes]=useState(getLocalItems());
+  var noteslen=Object.entries(notes).length;
 
+ 
+ 
 useEffect(() => {
   const savedNotes = JSON.parse(
     localStorage.getItem('react-notes-app-data')
   );
   setNotes(savedNotes);
-  console.log(notes)
-
 }, []);
 
 useEffect(() => {
@@ -51,7 +63,9 @@ setNotes(newnotes);
       <div className="w-full md:w-3/5">
       <Routes>
       <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
-      <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes}/>}/>
+      <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes} data={notes}/>}/>
+      <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
+
       </Routes>
   
       </div>
