@@ -33,7 +33,7 @@ function App() {
         setNotes(editNotes);
      }
     }
-
+ 
   }
   const [notes,setNotes]=useState(getLocalItems());
   var noteslen=Object.entries(notes).length;
