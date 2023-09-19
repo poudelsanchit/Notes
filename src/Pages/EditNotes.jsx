@@ -87,8 +87,8 @@ const EditNotes = ({handleEditNote,data}) => {
     return (
       <>
  <div className='flex flex-col w-full items-center max-h-screen dark:bg-primary bg-[#ffffff]'>       
-        <div className='md:w-3/5  w-full'>
-        <div className='p-3 flex flex-col h-screen'>
+        <div className='md:w-3/5  w-full p-0'>
+        <div className='px-3 pt-3 flex flex-col h-screen'>
           <div className='flex justify-between text-2xl'>
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg'/>
             <IoCheckmarkDoneCircleOutline className='text-3xl cursor-pointer dark:text-[#f2f5fa] text-switch-bg' onClick={saveData}/>
@@ -106,7 +106,7 @@ const EditNotes = ({handleEditNote,data}) => {
           </div>
           
       </div>
-      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 absolute h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
+      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 absolute h-48 px-4  pt-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-evenly '>
         { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
