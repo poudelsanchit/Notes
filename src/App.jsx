@@ -6,10 +6,13 @@ import AddNotes from "./Pages/AddNotes"
 import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
-setTimeout(function(){
-  window.location.reload();
-}, 1);
+
 const getLocalItems=()=>{
+  useEffect(()=>{
+    setTimeout(function(){
+      window.location.reload();
+    }, 1);
+  },[])
   
   const list = JSON.parse(
     localStorage.getItem('react-notes-app-data'));
