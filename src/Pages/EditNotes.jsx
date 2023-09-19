@@ -12,15 +12,8 @@ const EditNotes = ({handleEditNote,data}) => {
     const[notes,setNotes]= useState([]);
     
     
+  var  noteslen = Object.keys(data).length
 
-    if(typeof(Object.entries(data).length==Number))
-    {
-      var noteslen=Object.entries(data).length;
-
-    }
-    else{
-      noteslen=1;
-    }
     var newId = noteid.substr(1, noteid.length - 1);
   
     
