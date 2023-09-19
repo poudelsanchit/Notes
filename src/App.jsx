@@ -44,6 +44,9 @@ useEffect(() => {
     localStorage.getItem('react-notes-app-data')
   );
   setNotes(savedNotes);
+  setTimeout(function(){
+    window.location.reload();
+ }, 5000);
 }, []);
 
 useEffect(() => {
