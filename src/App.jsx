@@ -58,7 +58,7 @@ setNotes(newnotes);
 }
   return (
     <>
-     <div className='bg-[#f2f5fa] dark:bg-primary w-full min-h-screen text text-text-primary  flex justify-center'>
+     <div className='bg-[#f2f5fa] dark:bg-primary min-h-screen text text-text-primary  flex justify-center'>
       <div className="w-full">
       <Routes>
       <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
