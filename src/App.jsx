@@ -17,6 +17,7 @@ const getLocalItems=()=>{
     }
 }
 function App() {
+  
   const addNotes=(notelist)=>{
     const newNotes=[...notes,notelist];
     setNotes(newNotes);
@@ -40,13 +41,16 @@ useEffect(() => {
     JSON.stringify(notes)
   );
 }, [notes]);
-
+const deleteNote=(id)=>{
+const newnotes=  notes.filter((note)=>note.id!=id)
+setNotes(newnotes);
+}
   return (
     <>
      <div className='bg-primary w-full h-screen text text-text-primary  flex justify-center'>
       <div className="w-full md:w-3/5">
       <Routes>
-      <Route index element={<Notes notes={notes}/>} />
+      <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
       <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes}/>}/>
       </Routes>
   
