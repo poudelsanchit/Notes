@@ -9,8 +9,18 @@ import { useParams } from 'react-router-dom'
 
 const EditNotes = ({handleEditNote,data}) => {
     const { noteid } = useParams(); 
-  
-    var noteslen=Object.entries(data).length;
+    const[notes,setNotes]= useState([]);
+    
+    
+
+    if(typeof(Object.entries(data).length==Number))
+    {
+      var noteslen=Object.entries(data).length;
+
+    }
+    else{
+      noteslen=1;
+    }
     var newId = noteid.substr(1, noteid.length - 1);
   
     
@@ -81,6 +91,8 @@ const EditNotes = ({handleEditNote,data}) => {
      }
     }
   useEffect(()=>{
+    console.log(typeof(Object.entries(data).length))
+
     setNote(notetext);
     setTitle(noteTitle);
   },[])  
