@@ -88,7 +88,7 @@ const EditNotes = ({handleEditNote,data}) => {
       <>
  <div className='flex flex-col w-full items-center max-h-screen dark:bg-primary bg-[#ffffff] overflow-hidden'>       
         <div className='md:w-3/5  w-full p-0 overflow-hidden'>
-        <div className='px-3 pt-3 flex flex-col h-screen'>
+        <div className='px-3 pt-3 flex flex-col h-screen overflow-hidden'>
           <div className='flex justify-between text-2xl'>
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg'/>
             <IoCheckmarkDoneCircleOutline className='text-3xl cursor-pointer dark:text-[#f2f5fa] text-switch-bg' onClick={saveData}/>
