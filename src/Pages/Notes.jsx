@@ -11,8 +11,11 @@ const Notes = ({notes,handleDeleteNote}) => {
   
               <Header/>
               <div className='grid grid-cols-2 mr-3'>
+                <NoteItem color={'#3358ff'}  note_title={'Let\'s Create your first note!!'} note_text={'Click on the plus button on the right bottom corner 🙂'} />
               {
+                
                notes.map((notes)=>(
+                
                 <NoteItem id={notes.id} note_text={notes.text} note_title={notes.title} note_date={notes.date} color={notes.color} handleDeleteNote={handleDeleteNote}/>
                ))
               }

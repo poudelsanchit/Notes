@@ -12,13 +12,13 @@ const NoteItem = ({id,note_title,note_text,note_date,color,handleDeleteNote}) =>
     <div className={`h-48 w-11/12 rounded-lg p-2 m-4 font-Roboto font-medium flex  flex-col justify-between tracking-tighter`} style={{backgroundColor:color}}>
       <div className='overflow-auto'>  
         <div className='flex  justify-between items-center border-b-[1px] text-[#000000] font-semibold text-base'>
-        <div> 
+        <div className={color==='#3358ff'?'text-[#ffffff] text-lg':null}> 
     
           {note_title}
         </div>
             <AiOutlineEdit className='text-xl cursor-pointer' onClick={navigateToEdit} />
         </div>
-        <div className='text-[#000000] text-sm '> 
+        <div className={color='#3358ff'?'text-[#ffffff] text-sm ':null}> 
             {note_text}
         </div>
         </div>
