@@ -61,7 +61,7 @@ const AddNotes = ({handleAddNote,data}) => {
     return (
       <>
       <div className='flex flex-col w-full items-center dark:bg-primary bg-[#ffffff]'>
-        <div className='md:w-3/5 '>
+        <div className='md:w-3/5 w-full '>
         <div className='p-3 flex flex-col h-screen' >
           <div className='flex justify-between text-2xl'> 
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg '/>
