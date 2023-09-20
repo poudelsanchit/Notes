@@ -6,6 +6,7 @@ import AddNotes from "./Pages/AddNotes"
 import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
+import SplashScreen from "./Pages/SplashScreen"
 
 const getLocalItems=()=>{
 
@@ -63,7 +64,8 @@ setNotes(newnotes);
   return (
     <div className="w-full bg-text-primary h-screen">
        <Routes>
-      <Route index element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
+       <Route index element={<SplashScreen/>} />
+      <Route path='/home' element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
       <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes} data={notes}/>}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
 
