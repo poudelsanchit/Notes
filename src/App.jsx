@@ -20,11 +20,7 @@ const getLocalItems=()=>{
     }
 }
 function App() {
-  useEffect(()=>{
-    setTimeout(function(){
-      window.location.reload();
-    }, 10);
-  },[])
+
   
   const addNotes=(notelist)=>{
     const newNotes=[...notes,notelist];
