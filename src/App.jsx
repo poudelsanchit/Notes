@@ -39,7 +39,6 @@ function App() {
     }
   }
   // const [notes,setNotes]=useState(getLocalItems());
-  // var noteslen=Object.entries(notes).length;
 
   const [notes,setNotes]=useState(JSON.parse(localStorage.getItem('react-notes-app-data'))
   ||[{color  : "#3369ff",
@@ -50,7 +49,8 @@ function App() {
  }]
   );
  
- 
+  var noteslen=Object.entries(notes).length;
+
 // useEffect(() => {
 //   const savedNotes = JSON.parse(
 //     localStorage.getItem('react-notes-app-data')
