@@ -15,7 +15,7 @@ import Logo from '../assets/notes.svg'
     },[])
     const navigate= useNavigate();
     return (
-         <div className='flex flex-col h-screen w-screen justify-center items-center font-Chakra text-2xl' >
+         <div className='flex flex-col h-screen w-screen justify-center items-center font-Chakra text-2xl dark:text-text-primary' >
             <img src={Logo} alt="" className='h-24' />
             <div className='text-xl font-semibold'>NoteIos</div>
         </div>
