@@ -16,7 +16,7 @@ const Notes = ({notes,handleDeleteNote}) => {
                 
                notes&&notes.map((notes)=>(
                 
-                <NoteItem id={notes.id} note_text={notes.text} note_title={notes.title} note_date={notes.date} color={notes.color} handleDeleteNote={handleDeleteNote}/>
+                <NoteItem id={notes.id}  note_text={notes.text} note_title={notes.title} note_date={notes.date} textcolor={notes.textcolor} color={notes.color} handleDeleteNote={handleDeleteNote}/>
                ))
               }
               </div>

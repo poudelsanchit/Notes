@@ -12,15 +12,17 @@ const AddNotes = ({setNotes,data}) => {
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
     const [colors,setColors]=useState([
-      {color:'#3369ff',isActive:true},
-      {color:'#ffda47',isActive:false},
-      {color:'#5d55b2',isActive:false},
-      {color:'#ae3b76',isActive:false},
-      {color:'#ff90f4',isActive:false},
-      {color:'#73dfbb',isActive:false},
-      {color:'#0e121b',isActive:false},
+      {textcolor:'#ffffff',color:'#3369ff',isActive:true},
+      {textcolor:'#000000',color:'#ffda47',isActive:false},
+      {textcolor:'#ffffff',color:'#5d55b2',isActive:false},
+      {textcolor:'#ffffff',color:'#ae3b76',isActive:false},
+      {textcolor:'#000000',color:'#ff90f4',isActive:false},
+      {textcolor:'#000000',color:'#73dfbb',isActive:false},
+      {textcolor:'#ffffff',color:'#0e121b',isActive:false},
     ])
     const[color,setColor]= useState('#3369ff');
+    const[textColor,setTextColor]= useState('#ffffff');
+
       const navigate = useNavigate();
       const[title,setTitle]= useState('');
       const[note,setNote]= useState('');
@@ -39,13 +41,15 @@ const AddNotes = ({setNotes,data}) => {
             text:note,
             date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
             color:color,
+            textcolor:textColor
     
             };
           setNotes(prevNotes=>[newNote,...prevNotes])
           navigate(-1);
         }     
       }
-    const setWhichColor=(notescolor,index)=>{
+    const setWhichColor=(textscolor,notescolor,index)=>{
+      setTextColor(textscolor);
       setColor(notescolor);
       colors[index].isActive=true;
         for(var i=0;i<10;i++)
@@ -86,7 +90,7 @@ const AddNotes = ({setNotes,data}) => {
         { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-10 h-10 rounded-full dark:bg-[#212734] bg-[#f2f5fa]  flex items-center justify-center'>     
-               <div className='w-8 h-8 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.color,index)}/>
+               <div className='w-8 h-8 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
           </div>
           <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
           </div>
