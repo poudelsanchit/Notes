@@ -70,7 +70,7 @@ const newnotes=  notes.filter((note)=>note.id!=id)
 setNotes(newnotes);
 }
   return (
-    <div className="w-full bg-text-primary h-screen">
+    <div className="w-full bg-text-primary h-screen dark:bg-primary ">
        <Routes>
        <Route index element={<SplashScreen/>} />
       <Route path='/home' element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />

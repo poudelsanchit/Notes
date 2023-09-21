@@ -6,7 +6,7 @@ import FloatingActionButton from '../Components/FloatingActionButton';
 const Notes = ({notes,handleDeleteNote}) => {
   
   return (
-    <div className='flex justify-center min-h-screen'>
+    <div className='flex justify-center min-h-screen w-screen'>
       <div className='md:w-3/5 w-full  text-text-primary bg-[#ffffff] dark:bg-primary'>
   
               <Header/>
