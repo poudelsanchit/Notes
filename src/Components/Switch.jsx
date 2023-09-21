@@ -4,7 +4,7 @@ import { BsFillMoonStarsFill,BsSun } from 'react-icons/bs';
 import { ImSun } from 'react-icons/im';
  
 const Switch = () => {
-    const [theme,setTheme]= useState( 'dark');
+    const [theme,setTheme]= useState( 'light');
     // const getLocalItems=()=>{
 
 //   const list = JSON.parse(
@@ -39,10 +39,7 @@ const Switch = () => {
 useEffect(()=>{
   localStorage.setItem('theme',JSON.stringify(theme));
 },[theme])
-useEffect(()=>{
-    const html= document.querySelector('html');
-    html.classList.add('dark')
-},[])
+
    
 
   return (
