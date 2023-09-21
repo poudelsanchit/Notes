@@ -22,7 +22,7 @@ const NoteItem = ({id,note_title,note_text,note_date,color,handleDeleteNote}) =>
             {note_text}
         </div>
         </div>
-        <div className='text-xs text-[#000000] flex items-end justify-between font-light'>
+        <div className='text-xs text-[#ffffff] flex items-end justify-between font-light'>
         <div>{note_date}</div>
         <AiOutlineDelete className='text-xl cursor-pointer' onClick={()=>handleDeleteNote(id)}/>
         </div>
