@@ -11,8 +11,8 @@ const Notes = ({notes,handleDeleteNote,handleSearch}) => {
   
               <Header handleSearch={handleSearch}/>
               <div className='grid grid-cols-2 mr-3'>
-              { notes?
-              null:<NoteItem id={'Vn2XTNmVAzHlXRHMSq5q5'} color={'#3358ff'}  note_title={'Let\'s Create your first note!!'} note_text={'Click on the plus button on the right bottom corner 🙂'} />
+              { notes==[]?
+              null:<NoteItem id={'Vn2XTNmVAzHlXRHMSq5q5'} color={'#3358ff'}  note_title={'Let\'s Create your first note!!'} note_text={'Click on the plus button on the right bottom corner 🙂'}  handleDeleteNote={handleDeleteNote} />
               }  
               {
                 

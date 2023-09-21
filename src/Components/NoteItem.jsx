@@ -15,7 +15,8 @@ const NoteItem = ({id,note_title,note_text,note_date,textcolor,color,handleDelet
         <div className={color==='#3358ff'?' text-lg':null} style={{color:textcolor}}> 
           {note_title}
         </div>
-            <AiOutlineEdit className='text-xl cursor-pointer ' style={{color:textcolor}} onClick={navigateToEdit} />
+        {id==='Vn2XTNmVAzHlXRHMSq5q5'? null:            <AiOutlineEdit className='text-xl cursor-pointer ' style={{color:textcolor}} onClick={navigateToEdit} />
+}
         </div>
         <div className={color='#3358ff'?' text-sm ':null} style={{color:`${textcolor}`}}> 
             {note_text}
