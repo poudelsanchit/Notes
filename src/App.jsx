@@ -21,7 +21,7 @@ import SplashScreen from "./Pages/SplashScreen"
 //     }
 // }
 function App() {
-
+  
   
   // const addNotes=(notelist)=>{
   //   const newNotes=[...notes,notelist];
@@ -44,8 +44,8 @@ function App() {
   ||[{color  : "#3369ff",
     date  :   "2023/8/21",
    id  :   "Vn2XTNmVAzHlXRHMSq5q5",
-   text  :   "Hey",
-   title  :  "Hello",
+   text  :   "Click on the plus button on the right bottom corner 🙂",
+   title  :  "Create your first note!!",
  }]
   );
  
@@ -69,11 +69,14 @@ const deleteNote=(id)=>{
 const newnotes=  notes.filter((note)=>note.id!=id)
 setNotes(newnotes);
 }
+const [searchText,setSearchText]= useState('');
+console.log(notes);
+
   return (
     <div className="w-full bg-text-primary h-screen dark:bg-primary ">
        <Routes>
        <Route index element={<SplashScreen/>} />
-      <Route path='/home' element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
+      <Route path='/home' element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
       <Route path="/addnote" element={<AddNotes  setNotes={setNotes} />}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
 

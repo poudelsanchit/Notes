@@ -3,7 +3,7 @@ import Switch from './Switch'
 import SearchBox from './SearchBox'
 import Logo from '../assets/notes.png'
 import { useNavigate } from 'react-router-dom'
-const Header = () => {
+const Header = ({handleSearch}) => {
   const navigate= useNavigate();
   const navigateToHome=()=>{
     navigate('/')
@@ -18,7 +18,7 @@ const Header = () => {
         </div>
         <Switch />
     </div>
-    <SearchBox/>
+    <SearchBox handleSearch={handleSearch}/>
     </div>
     
     </>
