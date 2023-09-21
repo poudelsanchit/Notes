@@ -14,7 +14,7 @@ const AddNotes = ({setNotes,data}) => {
     const [colors,setColors]=useState([
       {color:'#3369ff',isActive:true},
       {color:'#ffda47',isActive:false},
-      {color:'#ffffff',isActive:false},
+      {color:'#5d55b2',isActive:false},
       {color:'#ae3b76',isActive:false},
       {color:'#ff90f4',isActive:false},
       {color:'#73dfbb',isActive:false},
