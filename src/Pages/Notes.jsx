@@ -3,15 +3,18 @@ import Header from '../Components/Header'
 import { nanoid  } from 'nanoid';
 import NoteItem from '../Components/NoteItem';
 import FloatingActionButton from '../Components/FloatingActionButton';
+import { useEffect } from 'react';
 const Notes = ({notes,handleDeleteNote,handleSearch}) => {
   
-  return (
+  var noteslen=Object.entries(notes).length;
+
+   return (
     <div className='flex justify-center min-h-screen w-screen'>
       <div className='md:w-3/5 w-full  text-text-primary bg-[#ffffff] dark:bg-primary'>
   
               <Header handleSearch={handleSearch}/>
               <div className='grid grid-cols-2 mr-3'>
-              { notes==[]?
+              { noteslen!==0?
               null:<NoteItem id={'Vn2XTNmVAzHlXRHMSq5q5'} color={'#3358ff'}  note_title={'Let\'s Create your first note!!'} note_text={'Click on the plus button on the right bottom corner 🙂'}  handleDeleteNote={handleDeleteNote} />
               }  
               {
