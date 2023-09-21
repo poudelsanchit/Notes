@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Switch from './Switch'
 import SearchBox from './SearchBox'
 import Logo from '../assets/notes.png'
 
 const Header = () => {
+  
  
   return (
     <>
@@ -12,7 +13,7 @@ const Header = () => {
         <div className='font-Montserrat font-semibold text-[#000000] dark:text-[#f2f5fa]'>
           <img src={Logo} alt=""  className='w-9'/>
         </div>
-        <Switch/>
+        <Switch />
     </div>
     <SearchBox/>
     </div>
