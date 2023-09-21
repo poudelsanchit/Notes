@@ -8,25 +8,25 @@ import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
 import SplashScreen from "./Pages/SplashScreen"
 
-const getLocalItems=()=>{
+// const getLocalItems=()=>{
 
-  const list = JSON.parse(
-    localStorage.getItem('react-notes-app-data'));
-    if(list)
-    {
-      return list;
-    }
-    else{
-      return [];
-    }
-}
+//   const list = JSON.parse(
+//     localStorage.getItem('react-notes-app-data'));
+//     if(list)
+//     {
+//       return list;
+//     }
+//     else{
+//       return [];
+//     }
+// }
 function App() {
 
   
-  const addNotes=(notelist)=>{
-    const newNotes=[...notes,notelist];
-    setNotes(newNotes);
-  }
+  // const addNotes=(notelist)=>{
+  //   const newNotes=[...notes,notelist];
+  //   setNotes(newNotes);
+  // }
   const editNotes=(editedNotes)=>{
     for (let index = 0; index < noteslen; index++) {
       if(editedNotes.id==notes[index].id)
@@ -38,18 +38,26 @@ function App() {
      }
     }
   }
-  const [notes,setNotes]=useState(getLocalItems());
-  var noteslen=Object.entries(notes).length;
+  // const [notes,setNotes]=useState(getLocalItems());
+  // var noteslen=Object.entries(notes).length;
 
- 
- 
-useEffect(() => {
-  const savedNotes = JSON.parse(
-    localStorage.getItem('react-notes-app-data')
+  const [notes,setNotes]=useState(JSON.parse(localStorage.getItem('react-notes-app-data'))
+  ||[{color  : "#3369ff",
+    date  :   "2023/8/21",
+   id  :   "Vn2XTNmVAzHlXRHMSq5q5",
+   text  :   "Hey",
+   title  :  "Hello",
+ }]
   );
-  setNotes(savedNotes);
  
-}, []);
+ 
+// useEffect(() => {
+//   const savedNotes = JSON.parse(
+//     localStorage.getItem('react-notes-app-data')
+//   );
+//   setNotes(savedNotes);
+ 
+// }, []);
 
 useEffect(() => {
   localStorage.setItem(
@@ -66,7 +74,7 @@ setNotes(newnotes);
        <Routes>
        <Route index element={<SplashScreen/>} />
       <Route path='/home' element={<Notes notes={notes} handleDeleteNote={deleteNote}/>} />
-      <Route path="/addnote" element={<AddNotes  handleAddNote={addNotes} data={notes}/>}/>
+      <Route path="/addnote" element={<AddNotes  setNotes={setNotes} />}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
 
       </Routes>

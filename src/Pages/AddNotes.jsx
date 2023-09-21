@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
  
  
 
-const AddNotes = ({handleAddNote,data}) => {
+const AddNotes = ({setNotes,data}) => {
   
 
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
@@ -33,16 +33,15 @@ const AddNotes = ({handleAddNote,data}) => {
           console.log(errMsg)
         }
         else{
-          handleAddNote(
-            {
+          const newNote=  {
             id: nanoid(),
             title:title,
             text:note,
             date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
             color:color,
     
-            }
-          )
+            };
+          setNotes(prevNotes=>[newNote,...prevNotes])
           navigate(-1);
         }     
       }
