@@ -10,7 +10,6 @@ import classNames from 'classnames'
 
 
 const AddNotes = ({setNotes,data}) => {
-  
 
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
@@ -31,6 +30,7 @@ const AddNotes = ({setNotes,data}) => {
       const[note,setNote]= useState('');
       const[datetime, setDateTime]= useState(new Date());
       const notelength= note.length;
+ 
       const saveData=()=>{
         if(title==''&&note=='')
         {
@@ -65,14 +65,26 @@ const AddNotes = ({setNotes,data}) => {
     }
     const [theme,setTheme]=useState('');
     useEffect(()=>{
+     const indexForColor = Math.floor(Math.random()*7 )
+     setColor(colors[indexForColor].color);
+     for(var i=0;i<7;i++)
+     {
+       if(i!==indexForColor)
+       {
+        colors[i].isActive=false;
+
+        }
+     }
+    
       const localtheme=localStorage.getItem('theme');
        console.log(localtheme)
        setTheme(localtheme);
     },[]);
+   
     return (
       <>
     
-      <div className='flex flex-col w-full h-min items-center dark:bg-primary bg-[#ffffff] overflow-hidden' >
+      <div className='flex flex-col  h-screen w-screen items-center dark:bg-primary bg-[#ffffff] overflow-hidden' >
         <div className='md:w-3/5 w-full '>
         <div className='p-3 flex flex-col h-screen' >
          
@@ -109,7 +121,7 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 right-0 absolute h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
+        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
