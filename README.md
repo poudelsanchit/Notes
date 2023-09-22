@@ -3,7 +3,7 @@
 
 <h1>Notes</h1>
 <p>This is a simple Notes App built using React, Vite, and Tailwind CSS. It allows users to create, edit, and delete notes. The application is designed to be fast and responsive, providing a seamless note-taking experience.</p>
-<img src=https://cdn.dribbble.com/userupload/10265008/file/original-6bcd0655e71badf9301c10225c149c48.png?resize=1200x2545 alt="logo" width=200 height=199 />
+<img src=https://cdn.dribbble.com/userupload/10265008/file/original-6bcd0655e71badf9301c10225c149c48.png?resize=1200x2545 alt="logo" width=1200 height=2545 />
 
 
 <h4> <a href=https://notesios.vercel.app/home>View Demo</a> <span> · </span> <a href="https://github.com/poudelsanchit/Noteios/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/poudelsanchit/Noteios/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/poudelsanchit/Noteios/issues"> Request Feature </a> </h4>
