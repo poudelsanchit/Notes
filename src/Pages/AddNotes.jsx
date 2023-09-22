@@ -109,7 +109,7 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
+        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 absolute h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
