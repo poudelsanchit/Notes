@@ -77,7 +77,7 @@ const AddNotes = ({setNotes,data}) => {
         <div className='p-3 flex flex-col h-screen' >
          
           <div className='flex justify-between text-2xl'> 
-              <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg '/>
+              <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#e0e3ea] text-switch-bg '/>
              {theme==='light'?<img src={SaveLight} alt=""  className='h-6' onClick={saveData}/>:<img src={SaveDark} alt=""  className='h-6' onClick={saveData}/>
 
 }
