@@ -72,7 +72,7 @@ const AddNotes = ({setNotes,data}) => {
     return (
       <>
     
-      <div className='flex flex-col w-full max-h-screen items-center dark:bg-primary bg-[#ffffff] overflow-hidden'>
+      <div className='flex flex-col w-full max-h-screen items-center dark:bg-primary bg-[#ffffff] overflow-hidden' >
         <div className='md:w-3/5 w-full '>
         <div className='p-3 flex flex-col h-screen' >
          
@@ -84,7 +84,7 @@ const AddNotes = ({setNotes,data}) => {
           </div>
          
           <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>
-          <div className='flex justify-between '>
+          {/* <div className='flex justify-between '>
           { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#e5dfdf]  flex items-center justify-center'>     
@@ -95,7 +95,7 @@ const AddNotes = ({setNotes,data}) => {
          
                  ))
           }
-          </div>
+          </div> */}
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
                   <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
@@ -108,38 +108,25 @@ const AddNotes = ({setNotes,data}) => {
           </div>
           
       </div>
-      {/* { 
-        <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 fixed h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
-      <div className='flex justify-evenly '>
-        { colors.map((notes,index)=>(
+      
+        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
+      <div className='flex justify-between '>
+      { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
-             <div className='w-10 h-10 rounded-full dark:bg-[#212734] bg-[#f2f5fa]  flex items-center justify-center'>     
-               <div className='w-8 h-8 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
+             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center'>     
+               <div className='w-7 h-7 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
           </div>
           <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
           </div>
          
                  ))
-        }
+          }
       </div>
-      {/* <div className='px-5 py-3  tracking-tighter	cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
-      text-[#000000] '>
-      <BsTrash/>
-      <div>
-        Delete Note
-      </div>
-        </div> }
-        {/* <div className='px-5 py-3 tracking-tighter	 cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
-      text-[#000000]'>
-      <BsShare/>
-      <div>
-        Share
-      </div>
-        </div>}
+     
           </div>
           
-          */
-          }
+        
+          
       </div>
      
         </div>
