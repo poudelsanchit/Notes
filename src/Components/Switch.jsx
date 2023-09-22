@@ -4,7 +4,7 @@ import { BsFillMoonStarsFill,BsSun } from 'react-icons/bs';
 import { ImSun } from 'react-icons/im';
  
 const Switch = () => {
-    const [theme,setTheme]= useState( 'light');
+    const [theme,setTheme]= useState(localStorage.getItem("theme")?localStorage.getItem("theme"):'light');
     // const getLocalItems=()=>{
 
 //   const list = JSON.parse(
@@ -18,26 +18,40 @@ const Switch = () => {
 //     }
 // }
 
-    const handleTheme=()=>{
-      const html = document.querySelector('html');
+    // const handleTheme=()=>{
+    //   const html = document.querySelector('html');
+    //   if(theme==='light')
+    //   {
+    //     setTheme('dark');
+    //     html.classList.add('dark')
+
+    //   }
+    //   else{
+    //     html.classList.remove('dark')
+
+    //     setTheme('light')
+
+    //   }
+    //   console.log(theme);
+    // }
+    const  handleTheme=()=>{
       if(theme==='light')
       {
-        setTheme('dark');
-        html.classList.add('dark')
-
+        setTheme('dark')
       }
       else{
-        html.classList.remove('dark')
-
         setTheme('light')
-
+        const html = document.querySelector('html');
+        html.classList.remove('dark')
       }
-      console.log(theme);
+
     }
     
-    
 useEffect(()=>{
-  localStorage.setItem('theme',JSON.stringify(theme));
+  localStorage.setItem('theme',theme);
+  const localTheme= localStorage.getItem('theme');
+  const html = document.querySelector('html');
+  html.classList.add(localTheme)
 },[theme])
 
    

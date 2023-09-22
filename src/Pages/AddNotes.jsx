@@ -3,8 +3,11 @@ import {IoChevronBack,IoCheckmarkDoneCircleOutline} from 'react-icons/io5'
 import {BsTrash,BsShare} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid'
- 
- 
+ import Save from '../assets/save.svg'
+ import SaveLight from '../assets/saveLight.svg'
+ import SaveDark from '../assets/saveDark.svg'
+import classNames from 'classnames'
+
 
 const AddNotes = ({setNotes,data}) => {
   
@@ -18,7 +21,7 @@ const AddNotes = ({setNotes,data}) => {
       {textcolor:'#ffffff',color:'#ae3b76',isActive:false},
       {textcolor:'#000000',color:'#ff90f4',isActive:false},
       {textcolor:'#000000',color:'#73dfbb',isActive:false},
-      {textcolor:'#ffffff',color:'#0e121b',isActive:false},
+      {textcolor:'#ffffff',color:'#36454F',isActive:false},
     ])
     const[color,setColor]= useState('#3369ff');
     const[textColor,setTextColor]= useState('#ffffff');
@@ -60,19 +63,37 @@ const AddNotes = ({setNotes,data}) => {
           }
         }
     }
-  
+    const [theme,setTheme]=useState('');
+    useEffect(()=>{
+       setTheme(localStorage.getItem('theme'));
+       console.log(theme)
 
+    },[]);
     return (
       <>
     
       <div className='flex flex-col w-full max-h-screen items-center dark:bg-primary bg-[#ffffff] overflow-hidden'>
         <div className='md:w-3/5 w-full '>
         <div className='p-3 flex flex-col h-screen' >
+         
           <div className='flex justify-between text-2xl'> 
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg '/>
-            <IoCheckmarkDoneCircleOutline className='text-3xl cursor-pointer dark:text-[#f2f5fa] text-switch-bg ' onClick={saveData}/>
+              <img src={SaveLight} alt=""  className='h-6' onClick={saveData}/>
           </div>
-          <div className='mt-5 font-Roboto font-bold text-2xl'>
+         
+          <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>
+          <div className='flex justify-between '>
+          { colors.map((notes,index)=>(
+          <div className='flex flex-col items-center gap-1'>
+             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#e5dfdf]  flex items-center justify-center'>     
+               <div className='w-7 h-7 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
+          </div>
+          <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
+          </div>
+         
+                 ))
+          }
+          </div>
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
                   <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
@@ -85,7 +106,8 @@ const AddNotes = ({setNotes,data}) => {
           </div>
           
       </div>
-      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 fixed h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
+      {/* { 
+        <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 fixed h-48 p-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-evenly '>
         { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
@@ -98,21 +120,24 @@ const AddNotes = ({setNotes,data}) => {
                  ))
         }
       </div>
-      <div className='px-5 py-3  tracking-tighter	cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
+      {/* <div className='px-5 py-3  tracking-tighter	cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
       text-[#000000] '>
       <BsTrash/>
       <div>
         Delete Note
       </div>
-        </div>
-        <div className='px-5 py-3 tracking-tighter	 cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
+        </div> }
+        {/* <div className='px-5 py-3 tracking-tighter	 cursor-pointer flex items-center gap-2 text-lg font-Roboto dark:text-[#dce1e7] 
       text-[#000000]'>
       <BsShare/>
       <div>
         Share
       </div>
-        </div>
+        </div>}
           </div>
+          
+          */
+          }
       </div>
      
         </div>
