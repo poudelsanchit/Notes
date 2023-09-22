@@ -10,7 +10,7 @@ const Notes = ({notes,handleDeleteNote,handleSearch}) => {
 
    return (
     <div className='flex justify-center min-h-screen w-screen'>
-      <div className='md:w-3/5 w-full  text-text-primary bg-[#ffffff] dark:bg-primary'>
+      <div className='md:w-4/5 w-full  text-text-primary bg-[#ffffff] dark:bg-primary'>
   
               <Header handleSearch={handleSearch}/>
               <div className='grid grid-cols-2 mr-3'>

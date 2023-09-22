@@ -4,7 +4,8 @@ import {BsTrash,BsShare} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
 import { data } from 'autoprefixer'
 import { useParams } from 'react-router-dom'
- 
+import { nanoid  } from 'nanoid';
+
  
 
 const EditNotes = ({handleEditNote,data}) => {
@@ -22,15 +23,17 @@ const EditNotes = ({handleEditNote,data}) => {
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
     const [colors,setColors]=useState([
-      {color:'#3369ff',isActive:true},
-      {color:'#ffda47',isActive:false},
-      {color:'#ffffff',isActive:false},
-      {color:'#ae3b76',isActive:false},
-      {color:'#ff90f4',isActive:false},
-      {color:'#73dfbb',isActive:false},
-      {color:'#0e121b',isActive:false},
+      {key:nanoid(),textcolor:'#ffffff',color:'#3369ff',isActive:true},
+      {key:nanoid(),textcolor:'#000000',color:'#ffda47',isActive:false},
+      {key:nanoid(),textcolor:'#ffffff',color:'#5d55b2',isActive:false},
+      {key:nanoid(),textcolor:'#ffffff',color:'#ae3b76',isActive:false},
+      {key:nanoid(),textcolor:'#000000',color:'#ff90f4',isActive:false},
+      {key:nanoid(),textcolor:'#000000',color:'#73dfbb',isActive:false},
+      {key:nanoid(),textcolor:'#ffffff',color:'#36454F',isActive:false},
     ])
     const[color,setColor]= useState('#3369ff');
+    const[textColor,setTextColor]= useState('#ffffff');
+
       const navigate = useNavigate();
       const[title,setTitle]= useState('');
       const[note,setNote]= useState('');
@@ -58,13 +61,14 @@ const EditNotes = ({handleEditNote,data}) => {
             text:note,
             date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
             color:color,
-    
+            textcolor:textColor,
             }
           )
           navigate(-1);
         }     
       }
-    const setWhichColor=(notescolor,index)=>{
+    const setWhichColor=(textcolor,notescolor,index)=>{
+      setTextColor(textcolor);
       setColor(notescolor);
       colors[index].isActive=true;
         for(var i=0;i<10;i++)
@@ -78,14 +82,15 @@ const EditNotes = ({handleEditNote,data}) => {
     for (let index = 0; index < noteslen; index++) {
       if(newId==data[index].id)
       {
+        var noteColor= data[index].textcolor;
         var noteTitle= data[index].title;
         var notetext= data[index].text;
         
      }
     }
   useEffect(()=>{
-    console.log(typeof(Object.entries(data).length))
-
+    console.log(noteColor)
+    setColor(noteColor);
     setNote(notetext);
     setTitle(noteTitle);
   },[])  
@@ -98,7 +103,19 @@ const EditNotes = ({handleEditNote,data}) => {
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#f2f5fa] text-switch-bg'/>
             <IoCheckmarkDoneCircleOutline className='text-3xl cursor-pointer dark:text-[#f2f5fa] text-switch-bg' onClick={saveData}/>
           </div>
-          <div className='mt-5 font-Roboto font-bold text-2xl'>
+          <div className='mt-5 font-Roboto font-bold text-2xl flex gap-2 flex-col'>
+          <div className='flex justify-between '>
+        { colors.map((notes,index )=>(
+          <div className='flex flex-col items-center gap-1' key={notes.key}>
+             <div className='w-10 h-10 rounded-full dark:bg-[#212734] bg-[#f2f5fa]  flex items-center justify-center'>     
+               <div className='w-8 h-8 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
+          </div>
+          <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
+          </div>
+         
+                 ))
+        }
+      </div>
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
                   <input type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
@@ -111,7 +128,7 @@ const EditNotes = ({handleEditNote,data}) => {
           </div>
           
       </div>
-      <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 absolute h-48 px-4  pt-4 rounded-t-[2rem] w-full md:w-3/5 '>
+      {/* <div className='dark:bg-[#171c26] bg-[#dde1fa] bottom-0 absolute h-48 px-4  pt-4 rounded-t-[2rem] w-full md:w-3/5 '>
       <div className='flex justify-evenly '>
         { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
@@ -138,7 +155,7 @@ const EditNotes = ({handleEditNote,data}) => {
         Share
       </div>
         </div>
-          </div>
+          </div> */}
         </div>
       </div>
      

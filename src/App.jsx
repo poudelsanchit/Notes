@@ -28,6 +28,7 @@ function App() {
   //   setNotes(newNotes);
   // }
   const editNotes=(editedNotes)=>{
+    console.log(editedNotes);
     for (let index = 0; index < noteslen; index++) {
       if(editedNotes.id==notes[index].id)
       {
