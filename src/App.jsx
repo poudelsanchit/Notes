@@ -74,7 +74,7 @@ const [searchText,setSearchText]= useState('');
 console.log(notes);
 
   return (
-    <div className="w-full bg-text-primary h-screen dark:bg-primary ">
+    <div className="w-full bg-text-primary  dark:bg-primary ">
        <Routes>
        <Route index element={<SplashScreen/>} />
       <Route path='/home' element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />

@@ -72,7 +72,7 @@ const AddNotes = ({setNotes,data}) => {
     return (
       <>
     
-      <div className='flex flex-col w-full max-h-screen items-center dark:bg-primary bg-[#ffffff] overflow-hidden' >
+      <div className='flex flex-col w-full h-min items-center dark:bg-primary bg-[#ffffff] overflow-hidden' >
         <div className='md:w-3/5 w-full '>
         <div className='p-3 flex flex-col h-screen' >
          
@@ -109,7 +109,7 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 absolute h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
+        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 right-0 absolute h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
       <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
