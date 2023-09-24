@@ -16,22 +16,22 @@ const EditNotes = ({handleEditNote,data}) => {
   var  noteslen = Object.keys(data).length
 
     var newId = noteid.substr(1, noteid.length - 1);
-  
+    
     
   
    
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
     const [colors,setColors]=useState([
-      {key:nanoid(),textcolor:'#ffffff',color:'#3369ff',isActive:true},
-      {key:nanoid(),textcolor:'#000000',color:'#ffda47',isActive:false},
-      {key:nanoid(),textcolor:'#ffffff',color:'#5d55b2',isActive:false},
-      {key:nanoid(),textcolor:'#ffffff',color:'#ae3b76',isActive:false},
-      {key:nanoid(),textcolor:'#000000',color:'#ff90f4',isActive:false},
-      {key:nanoid(),textcolor:'#000000',color:'#73dfbb',isActive:false},
-      {key:nanoid(),textcolor:'#ffffff',color:'#36454F',isActive:false},
+      {textcolor:'#ffffff',color:'#3369ff',isActive:true},
+      {textcolor:'#000000',color:'#ffda47',isActive:false},
+      {textcolor:'#ffffff',color:'#5d55b2',isActive:false},
+      {textcolor:'#ffffff',color:'#ae3b76',isActive:false},
+      {textcolor:'#000000',color:'#ff90f4',isActive:false},
+      {textcolor:'#000000',color:'#73dfbb',isActive:false},
+      {textcolor:'#ffffff',color:'#36454F',isActive:false},
     ])
-    const[color,setColor]= useState('#3369ff');
+    const[color,setColor]= useState('');
     const[textColor,setTextColor]= useState('#ffffff');
 
       const navigate = useNavigate();
@@ -79,24 +79,47 @@ const EditNotes = ({handleEditNote,data}) => {
           }
         }
     }
+    // for (let index = 0; index < noteslen; index++) {
+
+    //   if(newId==data[index].id)
+    //   {
+    //     var noteColor= data[index].textcolor;
+    //     var noteTitle= data[index].title;
+    //     var notetext= data[index].text;
+        
+    //  }
+    // }
+  useEffect(()=>{
     for (let index = 0; index < noteslen; index++) {
       if(newId==data[index].id)
       {
-        var noteColor= data[index].textcolor;
+        var noteColor= data[index].color;
         var noteTitle= data[index].title;
-        var notetext= data[index].text;
-        
+        var notetext= data[index].text; 
      }
     }
-  useEffect(()=>{
-    console.log(noteColor)
     setColor(noteColor);
     setNote(notetext);
     setTitle(noteTitle);
+
+    
+    
   },[])  
+  for(let i = 0; i < 7; i++)
+  {
+    if(colors[i].color==color)
+    {
+      colors[i].isActive=true
+      
+    }
+    else if(colors[i].color!==color){
+      colors[i].isActive=false
+
+    }
+  }
     return (
       <>
- <div className='flex flex-col w-full items-center max-h-screen dark:bg-primary bg-[#ffffff] '>       
+ <div className='flex flex-col w-full items-center max-h-screen dark:bg-primary bg-[#ffffff] '>    
         <div className='md:w-3/5  w-full p-0 '>
         <div className='px-3 pt-3 flex flex-col h-screen '>
           <div className='flex justify-between text-2xl'>

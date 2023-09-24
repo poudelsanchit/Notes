@@ -24,6 +24,7 @@ const AddNotes = ({setNotes,data}) => {
     ])
     const[color,setColor]= useState('#3369ff');
     const[textColor,setTextColor]= useState('#ffffff');
+    
 
       const navigate = useNavigate();
       const[title,setTitle]= useState('');
@@ -67,17 +68,19 @@ const AddNotes = ({setNotes,data}) => {
     useEffect(()=>{
      const indexForColor = Math.floor(Math.random()*7 )
      setColor(colors[indexForColor].color);
+     colors[indexForColor].isActive=true;
+
      for(var i=0;i<7;i++)
      {
        if(i!==indexForColor)
        {
+        
         colors[i].isActive=false;
 
         }
      }
     
       const localtheme=localStorage.getItem('theme');
-       console.log(localtheme)
        setTheme(localtheme);
     },[]);
    
@@ -96,7 +99,7 @@ const AddNotes = ({setNotes,data}) => {
           </div>
          
           <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>
-          {/* <div className='flex justify-between '>
+          <div className='flex justify-between '>
           { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#e5dfdf]  flex items-center justify-center'>     
@@ -107,7 +110,7 @@ const AddNotes = ({setNotes,data}) => {
          
                  ))
           }
-          </div> */}
+          </div> 
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
                   <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
@@ -122,7 +125,7 @@ const AddNotes = ({setNotes,data}) => {
       </div>
       
         <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
-      <div className='flex justify-between '>
+      {/* <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center'>     
@@ -133,11 +136,10 @@ const AddNotes = ({setNotes,data}) => {
          
                  ))
           }
-      </div>
+      </div> */}
      
           </div>
-          
-        
+     
           
       </div>
      
