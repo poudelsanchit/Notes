@@ -17,7 +17,7 @@ const AddNotes = ({setNotes,data}) => {
   const handleInputFocus = () => {
     console.log('first')
     if (isMobile) {
-      document.getElementById('navbar').classList.add('keyboard-open');
+      document.getElementById('navbar').classList.add('translate-y-[-50px]');
     }
   };
   
@@ -134,7 +134,7 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className={`dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5${isMobile?'translate-y-9 top-0':''}`}>
+        <div className={`dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5 transition-transform transform ${isMobile?'ranslate-y-[-50px]':''}`}>
      <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
