@@ -10,7 +10,17 @@ import classNames from 'classnames'
 
 
 const AddNotes = ({setNotes,data}) => {
-
+  const [isMobile, setIsMobile] = useState(false);
+  const checkIsMobile = () => {
+    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  };
+  const handleInputFocus = () => {
+    console.log('first')
+    if (isMobile) {
+      document.getElementById('navbar').classList.add('keyboard-open');
+    }
+  };
+  
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
     const [colors,setColors]=useState([
@@ -100,7 +110,7 @@ const AddNotes = ({setNotes,data}) => {
          
           <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>
           <div className='flex justify-between '>
-          { colors.map((notes,index)=>(
+          {/* { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#e5dfdf]  flex items-center justify-center'>     
                <div className='w-7 h-7 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
@@ -109,11 +119,11 @@ const AddNotes = ({setNotes,data}) => {
           </div>
          
                  ))
-          }
+          } */}
           </div> 
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
-                  <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
+                  <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} onFocus={handleInputFocus}  onTouchStart={checkIsMobile} />
               </div>
               <div className='text-xs text-[#000000] dark:text-[#a2a7b5] font-light border-b-[1px] pb-2'>{   `${days[datetime.getDay()]},${datetime.toLocaleString("en-US", {hour: "numeric", minute: "numeric", hour12: true,})} | ${notelength} characters`}</div>
              
@@ -124,11 +134,11 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
-      {/* <div className='flex justify-between '>
+        <div className={`dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5${isMobile?'translate-y-9':''}`}>
+     <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
-             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center'>     
+             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center' id="navbar">     
                <div className='w-7 h-7 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
           </div>
           <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
@@ -136,7 +146,7 @@ const AddNotes = ({setNotes,data}) => {
          
                  ))
           }
-      </div> */}
+      </div> 
      
           </div>
      
