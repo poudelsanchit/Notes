@@ -17,9 +17,23 @@ const AddNotes = ({setNotes,data}) => {
   const handleInputFocus = () => {
     console.log('first')
     if (isMobile) {
-      document.getElementById('navbar').classList.add('translate-y-[-50px]');
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
   };
+    // Add an event listener to detect when the mobile keyboard is closed
+    useEffect(() => {
+      const handleKeyboardClosed = () => {
+        // Scroll the page back to the top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+  
+      window.addEventListener('resize', handleKeyboardClosed);
+  
+      return () => {
+        window.removeEventListener('resize', handleKeyboardClosed);
+      };
+    }, []);
+  
   
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
@@ -134,11 +148,11 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className={`dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5 transition-transform transform ${isMobile?'ranslate-y-[-50px]':''}`}>
+        <div className={`dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5 transition-transform transform ${isMobile?'ranslate-y-[-50px]':''}`} id="navbar">
      <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
-             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center' id="navbar">     
+             <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center' >     
                <div className='w-7 h-7 rounded-full p-2 cursor-pointer' style={{backgroundColor:notes.color}}  onClick={()=>setWhichColor(notes.textcolor,notes.color,index)}/>
           </div>
           <div className='w-full h-1 rounded-md ' style={notes.isActive?{backgroundColor:notes.color}:null}/>
