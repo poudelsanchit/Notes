@@ -35,6 +35,7 @@ function App() {
         notes[index]=editedNotes;
         const editNotes= [...notes];
         console.log(editNotes)
+        console.log(editNotes)
         setNotes(editNotes);
      }
     }
