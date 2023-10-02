@@ -69,8 +69,7 @@ const AddNotes = ({setNotes,data}) => {
             text:note,
             date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
             color:color,
-            textcolor:textColor
-    
+            textcolor:textColor,
             };
           setNotes(prevNotes=>[newNote,...prevNotes])
           navigate(-1);

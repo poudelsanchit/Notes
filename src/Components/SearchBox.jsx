@@ -1,6 +1,6 @@
 import { Input } from 'postcss'
 import React from 'react'
-import Image from './obito.jpg'
+import Image from '../assets/obito.jpg'
 import {CgMenuRight } from 'react-icons/cg'
 import { useState } from 'react'
 const SearchBox = ({handleSearch}) => {

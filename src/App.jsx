@@ -27,13 +27,14 @@ function App() {
   //   const newNotes=[...notes,notelist];
   //   setNotes(newNotes);
   // }
-  const editNotes=(editedNotes)=>{
+  const handleEditNote=(editedNotes)=>{
     console.log(editedNotes);
     for (let index = 0; index < noteslen; index++) {
       if(editedNotes.id==notes[index].id)
       {
         notes[index]=editedNotes;
         const editNotes= [...notes];
+        console.log(editNotes)
         console.log(editNotes)
         setNotes(editNotes);
      }
@@ -52,13 +53,6 @@ function App() {
  
   var noteslen=Object.entries(notes).length;
 
-// useEffect(() => {
-//   const savedNotes = JSON.parse(
-//     localStorage.getItem('react-notes-app-data')
-//   );
-//   setNotes(savedNotes);
- 
-// }, []);
 
 useEffect(() => {
   localStorage.setItem(
@@ -79,7 +73,7 @@ console.log(notes);
        <Route index element={<SplashScreen/>} />
       <Route path='/home' element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
       <Route path="/addnote" element={<AddNotes  setNotes={setNotes} />}/>
-      <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={editNotes} data={notes}/>}/>
+      <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={handleEditNote} data={notes}/>}/>
 
       </Routes>
     </div>
