@@ -53,13 +53,6 @@ function App() {
  
   var noteslen=Object.entries(notes).length;
 
-// useEffect(() => {
-//   const savedNotes = JSON.parse(
-//     localStorage.getItem('react-notes-app-data')
-//   );
-//   setNotes(savedNotes);
- 
-// }, []);
 
 useEffect(() => {
   localStorage.setItem(
