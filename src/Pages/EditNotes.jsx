@@ -100,7 +100,6 @@ const EditNotes = ({handleEditNote,data}) => {
      }
     }
     console.log(noteTextColor)
-
     setColor(noteColor);
     setTextColor(noteTextColor)
     setNote(notetext);

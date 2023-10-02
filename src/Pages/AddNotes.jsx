@@ -94,7 +94,9 @@ const AddNotes = ({setNotes,data}) => {
          
           <div className='flex justify-between text-2xl'> 
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#e0e3ea] text-switch-bg '/>
-             {theme==='light'?<img src={SaveLight} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>:<img src={SaveDark} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>}
+             {theme==='light'?<img src={SaveLight} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>:<img src={SaveDark} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>
+
+}
           </div>
          
           <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>
