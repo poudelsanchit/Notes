@@ -67,6 +67,8 @@ const AddNotes = ({setNotes,data}) => {
     useEffect(()=>{
      const indexForColor = Math.floor(Math.random()*7 )
      setColor(colors[indexForColor].color);
+     setTextColor(colors[indexForColor].textcolor);
+
      colors[indexForColor].isActive=true;
 
      for(var i=0;i<7;i++)
@@ -92,9 +94,7 @@ const AddNotes = ({setNotes,data}) => {
          
           <div className='flex justify-between text-2xl'> 
               <IoChevronBack onClick={()=>navigate(-1)} className='cursor-pointer dark:text-[#e0e3ea] text-switch-bg '/>
-             {theme==='light'?<img src={SaveLight} alt=""  className='h-6' onClick={saveData}/>:<img src={SaveDark} alt=""  className='h-6' onClick={saveData}/>
-
-}
+             {theme==='light'?<img src={SaveLight} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>:<img src={SaveDark} alt=""  className='h-6 cursor-pointer' onClick={saveData}/>}
           </div>
          
           <div className='mt-5 font-Roboto font-bold text-2xl flex flex-col gap-2'>

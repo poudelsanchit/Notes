@@ -94,11 +94,15 @@ const EditNotes = ({handleEditNote,data}) => {
       if(newId==data[index].id)
       {
         var noteColor= data[index].color;
+        var noteTextColor= data[index].textcolor;
         var noteTitle= data[index].title;
         var notetext= data[index].text; 
      }
     }
+    console.log(noteTextColor)
+
     setColor(noteColor);
+    setTextColor(noteTextColor)
     setNote(notetext);
     setTitle(noteTitle);
 
