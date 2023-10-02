@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
 import SplashScreen from "./Pages/SplashScreen"
+import BottomNavBar from "./Components/BottomNavBar"
 
 // const getLocalItems=()=>{
 
@@ -67,15 +68,18 @@ setNotes(newnotes);
 const [searchText,setSearchText]= useState('');
 console.log(notes);
 
+
   return (
-    <div className="w-full bg-text-primary dark:bg-primary  overflow-hidden">
+    <div className="w-full bg-text-primary dark:bg-primary">
        <Routes>
        <Route index element={<SplashScreen/>} />
       <Route path='/home' element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
-      <Route path="/addnote" element={<AddNotes  setNotes={setNotes} />}/>
+      <Route path="/addnote" element={<AddNotes setNotes={setNotes} />}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={handleEditNote} data={notes}/>}/>
 
       </Routes>
+      <BottomNavBar/>
+
     </div>
      
   

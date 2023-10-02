@@ -89,7 +89,9 @@ const EditNotes = ({handleEditNote,data}) => {
         
     //  }
     // }
+
   useEffect(()=>{
+    window.scrollTo({top:0,left:0,behavior:'smooth'})
     for (let index = 0; index < noteslen; index++) {
       if(newId==data[index].id)
       {
@@ -104,7 +106,9 @@ const EditNotes = ({handleEditNote,data}) => {
     setTextColor(noteTextColor)
     setNote(notetext);
     setTitle(noteTitle);
-
+    const localtheme=localStorage.getItem('theme');
+    const html = document.querySelector('html');
+    html.classList.add(localtheme);
     
     
   },[])  

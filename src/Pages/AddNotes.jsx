@@ -65,6 +65,7 @@ const AddNotes = ({setNotes,data}) => {
     }
     const [theme,setTheme]=useState('');
     useEffect(()=>{
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
      const indexForColor = Math.floor(Math.random()*7 )
      setColor(colors[indexForColor].color);
      setTextColor(colors[indexForColor].textcolor);
@@ -83,6 +84,8 @@ const AddNotes = ({setNotes,data}) => {
     
       const localtheme=localStorage.getItem('theme');
        setTheme(localtheme);
+       const html = document.querySelector('html');
+       html.classList.add(localtheme);
     },[]);
    
     return (
@@ -125,8 +128,8 @@ const AddNotes = ({setNotes,data}) => {
           
       </div>
       
-        <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
-      {/* <div className='flex justify-between '>
+        {/*  <div className='dark:bg-[#171c26] bg-[#171c26] bottom-0 fixed h-min p-4 rounded-t-[2rem] w-full md:w-3/5'>
+     <div className='flex justify-between '>
       { colors.map((notes,index)=>(
           <div className='flex flex-col items-center gap-1'>
              <div className='w-9 h-9 rounded-full dark:bg-[#212734] bg-[#212734]  flex items-center justify-center'>     
@@ -137,9 +140,10 @@ const AddNotes = ({setNotes,data}) => {
          
                  ))
           }
-      </div> */}
+      </div> 
      
           </div>
+          */}
      
           
       </div>
