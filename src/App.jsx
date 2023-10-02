@@ -78,7 +78,6 @@ console.log(notes);
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={handleEditNote} data={notes}/>}/>
 
       </Routes>
-      <BottomNavBar/>
 
     </div>
      
