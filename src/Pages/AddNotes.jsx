@@ -43,7 +43,7 @@ const AddNotes = ({setNotes,data}) => {
             id: nanoid(),
             title:title,
             text:note,
-            date: `${datetime.getFullYear()}/${datetime.getMonth()}/${datetime.getDate()}`,
+            date: `${datetime.toLocaleString("en-US", {month: 'long'})} ${datetime.getDate()},${datetime.getFullYear()}  `,
             color:color,
             textcolor:textColor,
             };
