@@ -72,8 +72,8 @@ console.log(notes);
   return (
     <div className="w-full bg-text-primary dark:bg-primary">
        <Routes>
-       <Route index element={<SplashScreen/>} />
-      <Route path='/home' element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
+       {/* <Route index element={<SplashScreen/>} /> */}
+      <Route index element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
       <Route path="/addnote" element={<AddNotes setNotes={setNotes} />}/>
       <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={handleEditNote} data={notes}/>}/>
 
