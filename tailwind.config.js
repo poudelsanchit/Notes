@@ -23,7 +23,11 @@ export default {
       
 
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'svgImage': "url('/src/assets/random.svg')",
+      }
+    },
     fontFamily: {
       Montserrat: ['Montserrat', 'sans-serif'],
       Roboto: ['Roboto Mono', 'monospace'],

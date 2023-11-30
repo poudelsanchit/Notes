@@ -8,6 +8,7 @@ import { nanoid } from "nanoid"
 import EditNotes from "./Pages/EditNotes"
 import SplashScreen from "./Pages/SplashScreen"
 import BottomNavBar from "./Components/BottomNavBar"
+import SvgImage from "./Components/SvgImage"
 
 // const getLocalItems=()=>{
 
@@ -22,70 +23,70 @@ import BottomNavBar from "./Components/BottomNavBar"
 //     }
 // }
 function App() {
-  
-  
+
+
   // const addNotes=(notelist)=>{
   //   const newNotes=[...notes,notelist];
   //   setNotes(newNotes);
   // }
-  const handleEditNote=(editedNotes)=>{
+  const handleEditNote = (editedNotes) => {
     console.log(editedNotes);
     for (let index = 0; index < noteslen; index++) {
-      if(editedNotes.id==notes[index].id)
-      {
-        notes[index]=editedNotes;
-        const editNotes= [...notes];
+      if (editedNotes.id == notes[index].id) {
+        notes[index] = editedNotes;
+        const editNotes = [...notes];
         console.log(editNotes)
         console.log(editNotes)
         setNotes(editNotes);
-     }
+      }
     }
   }
   // const [notes,setNotes]=useState(getLocalItems());
 
-  const [notes,setNotes]=useState(JSON.parse(localStorage.getItem('react-notes-app-data'))
-  ||[{color  : "#3369ff",
-    date  :   "2023/8/21",
-   id  :   "Vn2XTNmVAzHlXRHMSq5q5",
-   text  :   "Click on the plus button on the right bottom corner 🙂",
-   title  :  "Create your first note!!",
- }]
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('react-notes-app-data'))
+    || [{
+      color: "#3369ff",
+      date: "2023/8/21",
+      id: "Vn2XTNmVAzHlXRHMSq5q5",
+      text: "Click on the plus button on the right bottom corner 🙂",
+      title: "Create your first note!!",
+    }]
   );
- 
-  var noteslen=Object.entries(notes).length;
+
+  var noteslen = Object.entries(notes).length;
 
 
-useEffect(() => {
-  localStorage.setItem(
-    'react-notes-app-data',
-    JSON.stringify(notes)
-  );
-}, [notes]);
-const deleteNote=(id)=>{
-const newnotes=  notes.filter((note)=>note.id!=id)
-setNotes(newnotes);
-}
-const [searchText,setSearchText]= useState('');
-console.log(notes);
+  useEffect(() => {
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify(notes)
+    );
+  }, [notes]);
+  const deleteNote = (id) => {
+    const newnotes = notes.filter((note) => note.id != id)
+    setNotes(newnotes);
+  }
+  const [searchText, setSearchText] = useState('');
+  console.log(notes);
 
 
   return (
     <div className="w-full bg-text-primary dark:bg-primary">
-       <Routes>
-       {/* <Route index element={<SplashScreen/>} /> */}
-      <Route index element={<Notes notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText}/>} />
-      <Route path="/addnote" element={<AddNotes setNotes={setNotes} />}/>
-      <Route path="/editnote/:noteid" element={<EditNotes  handleEditNote={handleEditNote} data={notes}/>}/>
-
+      <Routes>
+        {/* <Route index element={<SplashScreen/>} /> */}
+        <Route index element={<Notes notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleDeleteNote={deleteNote} handleSearch={setSearchText} />} />
+        <Route path="/addnote" element={<AddNotes setNotes={setNotes} />} />
+        <Route path="/editnote/:noteid" element={<EditNotes handleEditNote={handleEditNote} data={notes} />} />
+        <Route path='/test' element={<SvgImage />} />
       </Routes>
 
     </div>
-     
-  
-  
 
 
-    
+
+
+
+
   )
 }
 

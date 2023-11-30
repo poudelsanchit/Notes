@@ -13,7 +13,8 @@ const AddNotes = ({setNotes,data}) => {
 
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     const [errMsg,setErrMsg]=useState('');
-    const [colors,setColors]=useState([
+    const [colors,setColors]=useState(
+      [
       {textcolor:'#ffffff',color:'#3369ff',isActive:true},
       {textcolor:'#000000',color:'#ffda47',isActive:false},
       {textcolor:'#ffffff',color:'#5d55b2',isActive:false},
@@ -21,7 +22,8 @@ const AddNotes = ({setNotes,data}) => {
       {textcolor:'#000000',color:'#ff90f4',isActive:false},
       {textcolor:'#000000',color:'#73dfbb',isActive:false},
       {textcolor:'#ffffff',color:'#36454F',isActive:false},
-    ])
+    ]
+    )
     const[color,setColor]= useState('#3369ff');
     const[textColor,setTextColor]= useState('#ffffff');
     
@@ -71,7 +73,6 @@ const AddNotes = ({setNotes,data}) => {
      setTextColor(colors[indexForColor].textcolor);
 
      colors[indexForColor].isActive=true;
-
      for(var i=0;i<7;i++)
      {
        if(i!==indexForColor)
@@ -117,7 +118,7 @@ const AddNotes = ({setNotes,data}) => {
           </div> 
             <div className='text-xs font-light text-[#FF0000]'>{errMsg}</div>
               <div>
-                  <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff]' value={title} onChange={(e)=>setTitle(e.target.value)} />
+                  <input autoFocus type="text" placeholder='title...' className='focus:outline-none text-[#000000] dark:text-[#dce1e7]  placeholder:dark:text-[#dce1e7] placeholder:text-[#000000] dark:bg-primary bg-[#ffffff] w-full' value={title} onChange={(e)=>setTitle(e.target.value)} />
               </div>
               <div className='text-xs text-[#000000] dark:text-[#a2a7b5] font-light border-b-[1px] pb-2'>{   `${days[datetime.getDay()]},${datetime.toLocaleString("en-US", {hour: "numeric", minute: "numeric", hour12: true,})} | ${notelength} characters`}</div>
              
